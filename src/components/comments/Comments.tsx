@@ -1,3 +1,5 @@
+import './comments.css';
+
 export const Comments: React.FC = () => {
-  return <p>comments</p>;
+  return <main className='comments'>comments</main>;
 };

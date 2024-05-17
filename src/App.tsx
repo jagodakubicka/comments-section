@@ -1,9 +1,9 @@
+import { Header } from './components/header/Header';
 import { Comments } from './components/comments/Comments';
-import './App.css';
-
 function App() {
   return (
     <>
+      <Header />
       <Comments />
     </>
   );

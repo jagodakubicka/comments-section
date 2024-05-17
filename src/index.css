@@ -1,0 +1,30 @@
+:root {
+  --primary-color: #41729f;
+  --primary-dark-color: #274472;
+  --primary-light-color: #c3e0e5;
+  --text-dark-color: #050a30;
+  --text-light-color: #eeede7;
+  --secondary-color: #b68d40;
+
+  --danger-color: #f79489;
+  --success-color: #94c973;
+  --gray-color: #a29f9f;
+}
+
+body {
+  color: var(--primary-dark-color);
+  background: var(--primary-color);
+  background: linear-gradient(
+    90deg,
+    var(--gray-color) 27%,
+    var(--primary-light-color) 100%
+  );
+}
+
+section,
+main,
+header,
+footer {
+  max-width: 1700px;
+  margin: 0 auto;
+}
