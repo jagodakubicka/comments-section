@@ -1,0 +1,47 @@
+.comment {
+  background-color: beige;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin: 1rem 0;
+}
+
+.comment-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-user-nickname {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+.comment-likes {
+  border: none;
+  padding: 1rem;
+  background: transparent;
+  cursor: pointer;
+}
+.comment-content {
+}
+.comment-text {
+  text-wrap: pretty;
+}
+.comment-bottom {
+  display: flex;
+  gap: 1rem;
+}
+.comment-btn {
+  border: none;
+  padding: 1rem;
+  background: transparent;
+  cursor: pointer;
+}
+.comment-delete {
+  color: var(--danger-color);
+}
+.comment-edit {
+  color: var(--gray-color);
+}
+.comment-reply {
+  color: var(--secondary-color);
+}

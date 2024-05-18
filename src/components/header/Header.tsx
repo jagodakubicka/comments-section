@@ -1,3 +1,9 @@
+import './styles.css';
+
 export const Header: React.FC = () => {
-  return <h1>Header</h1>;
+  return (
+    <header>
+      <h1 className='header-title'>Header</h1>
+    </header>
+  );
 };
