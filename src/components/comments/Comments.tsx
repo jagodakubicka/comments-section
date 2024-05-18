@@ -12,6 +12,12 @@ interface CommentProps {
 
 export const Comments: React.FC = () => {
   const [comments, setComments] = useState<CommentProps[]>(data);
+  const [newComment, setNewComment] = useState({
+    user: 'You',
+    title: '',
+    desc: '',
+    id: 0,
+  });
   return (
     <main className='comments'>
       <ul>
@@ -23,6 +29,13 @@ export const Comments: React.FC = () => {
           );
         })}
       </ul>
+      <form>
+        <label htmlFor='new-comment'>Add new comment</label>
+        <textarea id='new-comment' className='new-comment' />
+        <button disabled className='submit-btn' type='submit'>
+          Add
+        </button>
+      </form>
     </main>
   );
 };

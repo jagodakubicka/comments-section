@@ -30,10 +30,26 @@ section,
 main,
 header,
 footer {
-  max-width: 1700px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
+textarea {
+  text-wrap: pretty;
+  border: none;
+  max-width: 100%;
+  height: max-content;
+  resize: none;
+  padding: 1rem;
+  border-radius: 1rem;
+  field-sizing: content;
+}
+button {
+  border: none;
+  padding: 1rem;
+  background: transparent;
+  cursor: pointer;
+}
 button,
 a {
   font-family: var(--primary-font);
