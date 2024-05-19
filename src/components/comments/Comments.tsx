@@ -3,7 +3,7 @@ import data from '../../data/data.json';
 import { useState } from 'react';
 import { Comment } from '../comment/Comment';
 
-interface CommentProps {
+export interface CommentProps {
   user: string;
   title: string;
   desc: string;
@@ -40,8 +40,8 @@ export const Comments: React.FC = () => {
       <ul>
         {comments.map((comment, index) => {
           return (
-            <li key={index}>
-              <Comment />
+            <li key={comment.id}>
+              <Comment {...comment} />
             </li>
           );
         })}
@@ -53,6 +53,7 @@ export const Comments: React.FC = () => {
           required
           id='new-comment'
           className='new-comment'
+          value={newComment.desc}
         />
         <button className='submit-btn' type='submit'>
           Add

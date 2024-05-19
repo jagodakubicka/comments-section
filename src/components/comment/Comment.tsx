@@ -1,23 +1,17 @@
+import { CommentProps } from '../comments/Comments';
 import './styles.css';
 
-export const Comment: React.FC = () => {
+export const Comment: React.FC<CommentProps> = (data) => {
   return (
     <div className='comment'>
       <div className='comment-top'>
-        <p className='comment-user-nickname'>SwirlingBlueberrySmoothie</p>
+        <p className='comment-user-nickname'>{data.user}</p>
         <button type='button' className='comment-likes'>
           <span>O</span>
         </button>
       </div>
       <div className='comment-content'>
-        <textarea
-          className='comment-text'
-          disabled
-          value={`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
-          deleniti quo earum non enim tempore aperiam eaque maiores, amet et?
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
-          deleniti quo earum non enim tempore aperiam eaque maiores, amet et?`}
-        />
+        <textarea className='comment-text' disabled value={data.desc} />
       </div>
       <div className='comment-bottom'>
         <button className='comment-btn comment-delete'>delete</button>

@@ -21,6 +21,7 @@
 .comment-content {
 }
 .comment-text {
+  text-align: left;
 }
 .comment-bottom {
   display: flex;
