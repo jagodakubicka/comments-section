@@ -16,16 +16,25 @@ export const Comments: React.FC = () => {
     user: 'You',
     title: '',
     desc: '',
-    id: 0,
+    id: comments.length + 1,
   });
-  console.log('comment content', newComment);
 
-  const addNewComment = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const createNewComment = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setNewComment({
       ...newComment,
       desc: e.target.value,
     });
   };
+
+  const addNewComment = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setComments([...comments, newComment]);
+    setNewComment({
+      ...newComment,
+      desc: '',
+    });
+  };
+  console.log('comments', comments);
   return (
     <main className='comments'>
       <ul>
@@ -37,10 +46,10 @@ export const Comments: React.FC = () => {
           );
         })}
       </ul>
-      <form>
+      <form onSubmit={addNewComment}>
         <label htmlFor='new-comment'>Add new comment</label>
         <textarea
-          onChange={addNewComment}
+          onChange={createNewComment}
           required
           id='new-comment'
           className='new-comment'
