@@ -10,12 +10,14 @@ export const Comment: React.FC = () => {
         </button>
       </div>
       <div className='comment-content'>
-        <textarea className='comment-text' disabled>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
+        <textarea
+          className='comment-text'
+          disabled
+          value={`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
           deleniti quo earum non enim tempore aperiam eaque maiores, amet et?
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
-          deleniti quo earum non enim tempore aperiam eaque maiores, amet et?
-        </textarea>
+          deleniti quo earum non enim tempore aperiam eaque maiores, amet et?`}
+        />
       </div>
       <div className='comment-bottom'>
         <button className='comment-btn comment-delete'>delete</button>

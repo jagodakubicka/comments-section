@@ -18,6 +18,14 @@ export const Comments: React.FC = () => {
     desc: '',
     id: 0,
   });
+  console.log('comment content', newComment);
+
+  const addNewComment = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setNewComment({
+      ...newComment,
+      desc: e.target.value,
+    });
+  };
   return (
     <main className='comments'>
       <ul>
@@ -31,8 +39,13 @@ export const Comments: React.FC = () => {
       </ul>
       <form>
         <label htmlFor='new-comment'>Add new comment</label>
-        <textarea id='new-comment' className='new-comment' />
-        <button disabled className='submit-btn' type='submit'>
+        <textarea
+          onChange={addNewComment}
+          required
+          id='new-comment'
+          className='new-comment'
+        />
+        <button className='submit-btn' type='submit'>
           Add
         </button>
       </form>
