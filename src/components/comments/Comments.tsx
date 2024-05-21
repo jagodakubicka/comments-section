@@ -31,15 +31,22 @@ export const Comments: React.FC = () => {
 
   const addNewComment = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setComments([...comments, newComment]);
+    const newId =
+      comments.length > 0 ? Math.max(...comments.map((c) => c.id)) + 1 : 1;
+    const commentToAdd = { ...newComment, id: newId };
+    setComments([...comments, commentToAdd]);
     setNewComment({
-      ...newComment,
+      user: 'You',
+      created: '',
+      title: '',
       desc: '',
+      id: newId,
     });
   };
 
-  const handleDeleteComment = () => {
+  const handleDeleteComment = (id: number) => {
     console.log('removed');
+    setComments(comments.filter((comment) => comment.id !== id));
   };
 
   return (
@@ -54,7 +61,7 @@ export const Comments: React.FC = () => {
                   <>
                     <button
                       className='comment-btn comment-delete'
-                      onClick={handleDeleteComment}>
+                      onClick={() => handleDeleteComment(comment.id)}>
                       delete
                     </button>
                     {/* <button
