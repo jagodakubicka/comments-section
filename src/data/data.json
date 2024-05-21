@@ -1,12 +1,14 @@
 [
   {
     "user": "Susan",
+    "created": "12-05-2024",
     "title": "Comment title",
     "desc": "Project focuses on recreating some of elements from sarigato.com website, as a learning opportunity for using Anime.js and CSS animations.",
     "id": 1
   },
   {
     "user": "John",
+    "created": "14-05-2024",
     "title": "Comment title 2",
     "desc": "Project focuses on recreating some of elements from sarigato.com website, as a learning opportunity for using Anime.js and CSS animations.",
     "id": 2

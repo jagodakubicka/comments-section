@@ -1,45 +1,45 @@
 import { useState } from 'react';
-import { CommentProps } from '../comments/Comments';
+import { CommentProps as OtherCommentProps } from '../comments/Comments';
 import './styles.css';
 
-export const Comment: React.FC<CommentProps> = (data) => {
+interface CommentProps extends OtherCommentProps {
+  canEdit: boolean;
+}
+
+export const Comment: React.FC<CommentProps> = ({
+  user,
+  created,
+  title,
+  desc,
+  id,
+  canEdit,
+}) => {
   const [likes, setLikes] = useState(0);
-  const [canEdit, setCanEdit] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
+
+  const handleIsLiked = () => {
+    setIsLiked(!isLiked);
+    if (isLiked === true) {
+      setLikes(likes - 1);
+    }
+    if (isLiked === false) {
+      setLikes(likes + 1);
+    }
+  };
 
   return (
-    <div className='comment'>
+    <div>
       <div className='comment-top'>
-        <p className='comment-user-nickname'>{data.user}</p>
-        <button
-          type='button'
-          className='comment-likes'
-          onClick={() => setLikes(likes + 1)}>
+        <p className='comment-user-nickname'>
+          {user} <span>{created}</span>
+        </p>
+        <button type='button' className='comment-likes' onClick={handleIsLiked}>
           <span>Likes: </span>
           <span>{likes}</span>
         </button>
       </div>
       <div className='comment-content'>
-        <textarea
-          className='comment-text'
-          disabled={!canEdit ? true : false}
-          value={data.desc}
-        />
-      </div>
-      <div className='comment-bottom'>
-        {data.user === 'You' ? (
-          <>
-            <button className='comment-btn comment-delete'>delete</button>
-            <button
-              className='comment-btn comment-edit'
-              onClick={() => setCanEdit(!canEdit)}>
-              edit
-            </button>
-          </>
-        ) : (
-          ''
-        )}
-
-        <button className='comment-btn comment-reply'>reply</button>
+        <p className='comment-text'>{desc}</p>
       </div>
     </div>
   );

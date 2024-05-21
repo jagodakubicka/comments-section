@@ -5,6 +5,7 @@ import { Comment } from '../comment/Comment';
 
 export interface CommentProps {
   user: string;
+  created: string;
   title: string;
   desc: string;
   id: number;
@@ -12,12 +13,14 @@ export interface CommentProps {
 
 export const Comments: React.FC = () => {
   const [comments, setComments] = useState<CommentProps[]>(data);
-  const [newComment, setNewComment] = useState({
+  const [newComment, setNewComment] = useState<CommentProps>({
     user: 'You',
+    created: '',
     title: '',
     desc: '',
     id: comments.length + 1,
   });
+  const [canEdit, setCanEdit] = useState(false);
 
   const createNewComment = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setNewComment({
@@ -34,14 +37,36 @@ export const Comments: React.FC = () => {
       desc: '',
     });
   };
-  console.log('comments', comments);
+
+  const handleDeleteComment = () => {
+    console.log('removed');
+  };
+
   return (
     <main className='comments'>
       <ul>
         {comments.map((comment, index) => {
           return (
-            <li key={comment.id}>
-              <Comment {...comment} />
+            <li key={comment.id} className='comment'>
+              <Comment {...comment} canEdit={canEdit} />
+              <div className='comment-bottom'>
+                {comment.user === 'You' ? (
+                  <>
+                    <button
+                      className='comment-btn comment-delete'
+                      onClick={handleDeleteComment}>
+                      delete
+                    </button>
+                    {/* <button
+                      className='comment-btn comment-edit'
+                      onClick={() => setCanEdit(!canEdit)}>
+                      edit
+                    </button> */}
+                  </>
+                ) : (
+                  ''
+                )}
+              </div>
             </li>
           );
         })}
@@ -56,7 +81,7 @@ export const Comments: React.FC = () => {
           value={newComment.desc}
         />
         <button className='submit-btn' type='submit'>
-          Add
+          Add +
         </button>
       </form>
     </main>
