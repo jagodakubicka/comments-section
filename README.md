@@ -1,30 +1,27 @@
-# React + TypeScript + Vite
+# Comment Section App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a comment section application built with React and TypeScript. The app features a reusable modal component and allows users to add, delete, and view comments.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Add new comments
+- Delete existing comments
+- Reusable modal component for confirmation dialogs
+- Local storage integration to persist comments
 
-## Expanding the ESLint configuration
+## What Will Be Added
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Reply to Comments (Nested Comments):**
 
-- Configure the top-level `parserOptions` property like this:
+  - Enable users to reply to individual comments, creating nested comment threads.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- **Edit Comments:**
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+  - Provide functionality for users to edit their existing comments.
+
+- **API Integration:**
+
+  - Store and fetch comments from an external API to ensure data persistence and synchronization.
+
+- **Built-in Text Editor:**
+  - Incorporate a text editor for creating and editing comments, supporting rich text formatting options.
