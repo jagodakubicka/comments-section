@@ -2,6 +2,7 @@ import './styles.css';
 import data from '../../data/data.json';
 import { useState } from 'react';
 import { Comment } from '../comment/Comment';
+import { Modal } from '../modal/Modal';
 
 export interface CommentProps {
   user: string;
@@ -21,6 +22,7 @@ export const Comments: React.FC = () => {
     id: comments.length + 1,
   });
   const [canEdit, setCanEdit] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const createNewComment = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setNewComment({
@@ -44,6 +46,10 @@ export const Comments: React.FC = () => {
     });
   };
 
+  const confirmDeleteComment = () => {
+    setIsModalVisible(true);
+  };
+
   const handleDeleteComment = (id: number) => {
     console.log('removed');
     setComments(comments.filter((comment) => comment.id !== id));
@@ -61,7 +67,7 @@ export const Comments: React.FC = () => {
                   <>
                     <button
                       className='comment-btn comment-delete'
-                      onClick={() => handleDeleteComment(comment.id)}>
+                      onClick={() => confirmDeleteComment()}>
                       delete
                     </button>
                     {/* <button
@@ -91,6 +97,14 @@ export const Comments: React.FC = () => {
           Add +
         </button>
       </form>
+      {isModalVisible && (
+        <Modal
+          type='danger'
+          title='Are you sure?'
+          text='This action cannot be undone.'
+          onConfirm={() => console.log('removed from modal')}
+          onCancel={() => setIsModalVisible(false)}></Modal>
+      )}
     </main>
   );
 };
