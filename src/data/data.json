@@ -2,15 +2,17 @@
   {
     "user": "Susan",
     "created": "12-05-2024",
+    "liked": 10,
     "title": "Comment title",
-    "desc": "Project focuses on recreating some of elements from sarigato.com website, as a learning opportunity for using Anime.js and CSS animations.",
+    "desc": "    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem ipsam maxime quae tenetur illo maiores veniam id in illum alias culpa atque repudiandae praesentium tempora doloremque, et odit nam nemo dolor molestiae. Accusamus tempora in vero adipisci officia commodi architecto magnam amet iure, vel provident quaerat quibusdam totam veritatis, quos earum. Iusto neque id illo vitae corrupti distinctio animi tenetur aspernatur cum. Pariatur quasi distinctio nemo ipsa eaque optio, adipisci repudiandae perspiciatis ipsum in reiciendis a esse fugiat? Delectus earum aliquid libero culpa ratione non alias, numquam corrupti nobis fugiat cum obcaecati odit mollitia autem beatae dolorum provident maiores quidem.",
     "id": 1
   },
   {
     "user": "John",
     "created": "14-05-2024",
+    "liked": 2,
     "title": "Comment title 2",
-    "desc": "Project focuses on recreating some of elements from sarigato.com website, as a learning opportunity for using Anime.js and CSS animations.",
+    "desc": "    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem ipsam maxime quae tenetur illo maiores veniam id in illum alias culpa atque repudiandae praesentium tempora doloremque, et odit nam nemo dolor molestiae. Accusamus tempora in vero adipisci officia commodi architecto magnam amet iure, vel provident quaerat quibusdam totam veritatis, quos earum. Iusto neque id illo vitae corrupti distinctio animi tenetur aspernatur cum.",
     "id": 2
   }
 ]

@@ -1,8 +1,19 @@
 .comment {
-  background-color: rgba(250, 250, 250, 0.8);
   padding: 1rem;
-  border-radius: 1rem;
   margin: 1rem 0;
+}
+.comment:not(:last-child) {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 2px;
+    background-color: var(--gray-color);
+  }
 }
 
 .comment-top {
@@ -21,6 +32,17 @@
   }
 }
 .comment-likes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 1rem;
+}
+.comment-liked {
+  color: red;
+}
+.comment-not-liked {
+  color: gray;
 }
 .comment-content {
 }
@@ -35,6 +57,7 @@
 }
 .comment-delete {
   color: var(--danger-color);
+  font-size: 1rem;
 }
 .comment-edit {
   color: var(--gray-color);

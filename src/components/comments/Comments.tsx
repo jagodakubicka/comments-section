@@ -1,12 +1,15 @@
 import './styles.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import data from '../../data/data.json';
 import { useState } from 'react';
 import { Comment } from '../comment/Comment';
 import { Modal } from '../modal/Modal';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 export interface CommentProps {
   user: string;
   created: string;
+  liked: number;
   title: string;
   desc: string;
   id: number;
@@ -17,6 +20,7 @@ export const Comments: React.FC = () => {
   const [newComment, setNewComment] = useState<CommentProps>({
     user: 'You',
     created: '',
+    liked: 0,
     title: '',
     desc: '',
     id: comments.length + 1,
@@ -40,6 +44,7 @@ export const Comments: React.FC = () => {
     setNewComment({
       user: 'You',
       created: '',
+      liked: 0,
       title: '',
       desc: '',
       id: newId,
@@ -66,9 +71,10 @@ export const Comments: React.FC = () => {
                 {comment.user === 'You' ? (
                   <>
                     <button
+                      aria-label='remove comment'
                       className='comment-btn comment-delete'
                       onClick={() => confirmDeleteComment()}>
-                      delete
+                      <FontAwesomeIcon icon={faTrash} />
                     </button>
                     {/* <button
                       className='comment-btn comment-edit'

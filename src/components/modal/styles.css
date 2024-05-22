@@ -13,7 +13,7 @@
     border-radius: 8px;
     padding: 0.4rem 0.4rem;
     font-weight: bold;
-    outline: 3px solid var(--danger-color);
+    transition: 0.4s ease-in-out;
   }
 }
 .modal-content {
@@ -21,7 +21,7 @@
   width: 24rem;
   max-width: 90%;
   height: max-content;
-  background: white;
+  background: var(--white-color);
   border-radius: 8px;
   margin: 0 auto;
   position: relative;
@@ -35,10 +35,17 @@
 .button-confirm {
   background-color: var(--danger-color);
   color: var(--text-light-color);
+  &:hover {
+    scale: 1.05;
+  }
 }
 
 .button-cancel {
+  border: 3px solid var(--danger-color);
   color: var(--danger-color);
+  &:hover {
+    scale: 1.05;
+  }
 }
 .button-close {
   position: absolute;

@@ -12,6 +12,8 @@
   --success-color: #94c973;
   --gray-color: #cfdae0;
 
+  --white-color: #f5f5f5;
+
   --primary-font: 'Montserrat', sans-serif;
 }
 
@@ -42,7 +44,6 @@ textarea {
   resize: none;
   padding: 1rem;
   border-radius: 1rem;
-  field-sizing: content;
 }
 button {
   border: none;

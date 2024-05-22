@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CommentProps as OtherCommentProps } from '../comments/Comments';
 import './styles.css';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 interface CommentProps extends OtherCommentProps {
   canEdit: boolean;
@@ -9,20 +11,20 @@ interface CommentProps extends OtherCommentProps {
 export const Comment: React.FC<CommentProps> = ({
   user,
   created,
-  title,
+  liked,
   desc,
   id,
   canEdit,
 }) => {
-  const [likes, setLikes] = useState(0);
+  const [likes, setLikes] = useState(liked);
   const [isLiked, setIsLiked] = useState(false);
 
   const handleIsLiked = () => {
-    setIsLiked(!isLiked);
-    if (isLiked === true) {
+    if (isLiked) {
+      setIsLiked(false);
       setLikes(likes - 1);
-    }
-    if (isLiked === false) {
+    } else {
+      setIsLiked(true);
       setLikes(likes + 1);
     }
   };
@@ -33,8 +35,15 @@ export const Comment: React.FC<CommentProps> = ({
         <p className='comment-user-nickname'>
           {user} <span>{created}</span>
         </p>
-        <button type='button' className='comment-likes' onClick={handleIsLiked}>
-          <span>Likes: </span>
+        <button
+          aria-label='like this comment'
+          type='button'
+          className='comment-likes'
+          onClick={handleIsLiked}>
+          <FontAwesomeIcon
+            className={isLiked ? 'comment-liked' : 'comment-not-liked'}
+            icon={faHeart}
+          />
           <span>{likes}</span>
         </button>
       </div>
