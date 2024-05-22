@@ -44,8 +44,7 @@
 .comment-not-liked {
   color: rgb(157, 156, 156);
 }
-.comment-content {
-}
+
 .comment-text {
   text-align: left;
 }
@@ -53,8 +52,7 @@
   display: flex;
   gap: 1rem;
 }
-.comment-btn {
-}
+
 .comment-delete {
   color: var(--danger-color);
   font-size: 1rem;

@@ -65,7 +65,7 @@ export const Comments: React.FC = () => {
   return (
     <main className='comments'>
       <ul>
-        {comments.map((comment, index) => {
+        {comments.map((comment) => {
           return (
             <li key={comment.id} className='comment'>
               <Comment {...comment} canEdit={canEdit} />
