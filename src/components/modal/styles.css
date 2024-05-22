@@ -33,16 +33,12 @@
 }
 
 .button-confirm {
-  background-color: var(--danger-color);
-  color: var(--text-light-color);
   &:hover {
     scale: 1.05;
   }
 }
 
 .button-cancel {
-  border: 3px solid var(--danger-color);
-  color: var(--danger-color);
   &:hover {
     scale: 1.05;
   }
@@ -53,7 +49,7 @@
   right: 2%;
   outline: none !important;
   font-size: 1.5rem;
-  color: var(--primary-color);
+  color: var(--text-dark-color);
 }
 .modal-icon {
   font-size: 1.5rem;
@@ -67,5 +63,30 @@
 }
 
 .warning-color {
+  color: var(--secondary-color);
+}
+
+.button-confirm.danger-button {
+  background-color: var(--danger-color);
+  color: var(--text-light-color);
+}
+.button-cancel.danger-button {
+  border: 3px solid var(--danger-color);
+  color: var(--danger-color);
+}
+.button-confirm.success-button {
+  background-color: var(--success-color);
+  color: var(--text-light-color);
+}
+.button-cancel.success-button {
+  border: 3px solid var(--success-color);
+  color: var(--success-color);
+}
+.button-confirm.warning-button {
+  background-color: var(--secondary-color);
+  color: var(--text-light-color);
+}
+.button-cancel.warning-button {
+  border: 3px solid var(--secondary-color);
   color: var(--secondary-color);
 }

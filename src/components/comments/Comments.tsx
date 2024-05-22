@@ -4,7 +4,7 @@ import data from '../../data/data.json';
 import { useState } from 'react';
 import { Comment } from '../comment/Comment';
 import { Modal } from '../modal/Modal';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 export interface CommentProps {
   user: string;
@@ -99,8 +99,11 @@ export const Comments: React.FC = () => {
           className='new-comment'
           value={newComment.desc}
         />
-        <button className='submit-btn' type='submit'>
-          Add +
+        <button
+          aria-label='add new comment'
+          className='submit-btn'
+          type='submit'>
+          <FontAwesomeIcon icon={faPlus} />
         </button>
       </form>
       {isModalVisible && (
@@ -108,6 +111,7 @@ export const Comments: React.FC = () => {
           type='danger'
           title='Are you sure?'
           text='This action cannot be undone.'
+          actionNeeded={true}
           onConfirm={() => console.log('removed from modal')}
           onCancel={() => setIsModalVisible(false)}></Modal>
       )}
