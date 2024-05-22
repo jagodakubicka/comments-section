@@ -73,10 +73,10 @@ export const Comments: React.FC = () => {
                 {comment.user === 'You' ? (
                   <>
                     <button
-                      aria-label='remove comment'
                       className='comment-btn comment-delete'
                       onClick={() => confirmDeleteComment(comment.id)}>
                       <FontAwesomeIcon icon={faTrash} />
+                      <span>delete</span>
                     </button>
                     {/* <button
                       className='comment-btn comment-edit'
@@ -93,14 +93,17 @@ export const Comments: React.FC = () => {
         })}
       </ul>
       <form onSubmit={addNewComment}>
-        <label htmlFor='new-comment'>Add new comment</label>
-        <textarea
-          onChange={createNewComment}
-          required
-          id='new-comment'
-          className='new-comment'
-          value={newComment.desc}
-        />
+        <div className='new-comment-wrapper'>
+          <textarea
+            onChange={createNewComment}
+            required
+            id='new-comment'
+            className='new-comment'
+            value={newComment.desc}
+          />
+          <span>New comment</span>
+        </div>
+
         <button
           aria-label='add new comment'
           className='submit-btn'

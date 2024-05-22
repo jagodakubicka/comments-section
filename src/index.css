@@ -26,6 +26,12 @@ body {
     var(--primary-light-color) 100%
   );
   font-family: var(--primary-font);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin-bottom: 50px;
 }
 
 section,
@@ -40,10 +46,9 @@ textarea {
   text-wrap: pretty;
   border: none;
   max-width: 100%;
-  height: max-content;
   resize: none;
-  padding: 1rem;
-  border-radius: 1rem;
+  border-radius: 0.4rem;
+  font-family: var(--primary-font);
 }
 button {
   border: none;

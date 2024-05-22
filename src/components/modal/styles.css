@@ -18,8 +18,7 @@
 }
 .modal-content {
   padding: 3rem;
-  width: 24rem;
-  max-width: 90%;
+  max-width: 500px;
   height: max-content;
   background: var(--white-color);
   border-radius: 8px;

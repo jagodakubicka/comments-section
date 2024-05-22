@@ -58,6 +58,16 @@
 .comment-delete {
   color: var(--danger-color);
   font-size: 1rem;
+  border: 2px solid var(--danger-color);
+  border-radius: 0.4rem;
+  padding: 0.2rem 0.4rem;
+  transition: 0.5s;
+  &:hover {
+    scale: 1.05;
+  }
+}
+.comment-delete span {
+  margin: 0 0.4rem;
 }
 .comment-edit {
   color: var(--gray-color);
