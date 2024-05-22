@@ -33,7 +33,8 @@ export const Comment: React.FC<CommentProps> = ({
     <div>
       <div className='comment-top'>
         <p className='comment-user-nickname'>
-          {user} <span>{created}</span>
+          {user}
+          {/* <span>{created}</span> */}
         </p>
         <button
           aria-label='like this comment'

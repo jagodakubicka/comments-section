@@ -27,6 +27,7 @@ export const Comments: React.FC = () => {
   });
   const [canEdit, setCanEdit] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [commentToDelete, setCommentToDelete] = useState<number | null>(null);
 
   const createNewComment = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setNewComment({
@@ -51,13 +52,14 @@ export const Comments: React.FC = () => {
     });
   };
 
-  const confirmDeleteComment = () => {
+  const confirmDeleteComment = (id: number) => {
     setIsModalVisible(true);
+    setCommentToDelete(id);
   };
 
   const handleDeleteComment = (id: number) => {
-    console.log('removed');
     setComments(comments.filter((comment) => comment.id !== id));
+    setIsModalVisible(false);
   };
 
   return (
@@ -73,7 +75,7 @@ export const Comments: React.FC = () => {
                     <button
                       aria-label='remove comment'
                       className='comment-btn comment-delete'
-                      onClick={() => confirmDeleteComment()}>
+                      onClick={() => confirmDeleteComment(comment.id)}>
                       <FontAwesomeIcon icon={faTrash} />
                     </button>
                     {/* <button
@@ -112,7 +114,7 @@ export const Comments: React.FC = () => {
           title='Are you sure?'
           text='This action cannot be undone.'
           actionNeeded={true}
-          onConfirm={() => console.log('removed from modal')}
+          onConfirm={() => handleDeleteComment(commentToDelete!)}
           onCancel={() => setIsModalVisible(false)}></Modal>
       )}
     </main>
