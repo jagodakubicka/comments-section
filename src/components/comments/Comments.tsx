@@ -25,7 +25,6 @@ export const Comments: React.FC = () => {
     desc: '',
     id: comments.length + 1,
   });
-  const [canEdit, setCanEdit] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [commentToDelete, setCommentToDelete] = useState<number | null>(null);
 
@@ -68,7 +67,7 @@ export const Comments: React.FC = () => {
         {comments.map((comment) => {
           return (
             <li key={comment.id} className='comment'>
-              <Comment {...comment} canEdit={canEdit} />
+              <Comment {...comment} />
               <div className='comment-bottom'>
                 {comment.user === 'You' ? (
                   <>

@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CommentProps as OtherCommentProps } from '../comments/Comments';
 import './styles.css';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
 
 interface CommentProps extends OtherCommentProps {
-  canEdit: boolean;
+  // canEdit: boolean;
 }
 
 export const Comment: React.FC<CommentProps> = ({
@@ -14,10 +15,11 @@ export const Comment: React.FC<CommentProps> = ({
   liked,
   desc,
   id,
-  canEdit,
 }) => {
   const [likes, setLikes] = useState(liked);
   const [isLiked, setIsLiked] = useState(false);
+  const [canEdit, setCanEdit] = useState(false);
+  const [editText, setEditText] = useState(desc);
 
   const handleIsLiked = () => {
     if (isLiked) {
@@ -29,6 +31,14 @@ export const Comment: React.FC<CommentProps> = ({
     }
   };
 
+  const handleEdit = () => {
+    setCanEdit(true);
+  };
+
+  const handleSave = () => {
+    setCanEdit(false);
+  };
+
   return (
     <div>
       <div className='comment-top'>
@@ -36,20 +46,45 @@ export const Comment: React.FC<CommentProps> = ({
           {user}
           {/* <span>{created}</span> */}
         </p>
-        <button
-          aria-label='like this comment'
-          type='button'
-          className='comment-likes'
-          onClick={handleIsLiked}>
-          <FontAwesomeIcon
-            className={isLiked ? 'comment-liked' : 'comment-not-liked'}
-            icon={faHeart}
-          />
-          <span>{likes}</span>
-        </button>
+        <div className='comment-top__btns'>
+          <button
+            aria-label='like this comment'
+            type='button'
+            className='comment-likes'
+            onClick={handleIsLiked}>
+            <FontAwesomeIcon
+              className={isLiked ? 'comment-liked' : 'comment-not-liked'}
+              icon={faHeart}
+            />
+            <span>{likes}</span>
+          </button>
+          {user === 'You' ? (
+            <button className='comment-btn comment-edit' onClick={handleEdit}>
+              <FontAwesomeIcon icon={faPen} />
+              <span>edit</span>
+            </button>
+          ) : (
+            ''
+          )}
+        </div>
       </div>
       <div className='comment-content'>
-        <p className='comment-text'>{desc}</p>
+        {canEdit ? (
+          <div className='comment-content__wrapper'>
+            <textarea
+              className='edit-comment'
+              value={editText}
+              onBlur={handleSave}
+              onChange={(e) => setEditText(e.target.value)}></textarea>
+            <button className='comment-save' onClick={handleSave}>
+              <FontAwesomeIcon icon={faCheck} />
+            </button>
+          </div>
+        ) : (
+          <p className='comment-text' onClick={handleEdit}>
+            {editText}
+          </p>
+        )}
       </div>
     </div>
   );

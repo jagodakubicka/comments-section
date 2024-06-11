@@ -21,6 +21,11 @@
   justify-content: space-between;
   align-items: center;
 }
+.comment-top__btns {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
 
 .comment-user-nickname {
   color: var(--primary-color);
@@ -54,6 +59,7 @@
 }
 
 .comment-delete {
+  margin-top: 1rem;
   color: var(--danger-color);
   font-size: 1rem;
   border: 2px solid var(--danger-color);
@@ -67,9 +73,36 @@
 .comment-delete span {
   margin: 0 0.4rem;
 }
+.comment-save {
+  margin: 1rem;
+  color: var(--success-color);
+  font-size: 1rem;
+  border: 2px solid var(--success-color);
+  border-radius: 0.4rem;
+  padding: 0.2rem 0.4rem;
+  transition: 0.5s;
+  height: 100%;
+  &:hover {
+    scale: 1.05;
+  }
+}
 .comment-edit {
   color: var(--gray-color);
+  font-size: 1rem;
+  border: 2px solid var(--gray-color);
+  border-radius: 0.4rem;
+  padding: 0.2rem 0.4rem;
+  transition: 0.5s;
+  &:hover {
+    scale: 1.05;
+  }
 }
 .comment-reply {
   color: var(--secondary-color);
+}
+
+.comment-content__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
